@@ -23,7 +23,6 @@ def sqrt2_a():
     for x in itertools.repeat(2):
         yield x
 
-
 def sqrt2_b():
   for x in itertools.repeat(1):
     yield x
