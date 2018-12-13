@@ -42,7 +42,7 @@ class PrimeFactorization:
         self.primes = Primes()
         self.__primeList = self.primes.getPrimesList()
 
-    def factor(self, n):
+    def factor(self, n, longform=False):
         if self.primes.isPrime(n):
             return [(n, 1)]
         factorization = []
@@ -51,10 +51,16 @@ class PrimeFactorization:
             while n % p == 0:
                 counter += 1
                 n = n / p
-            if counter > 0:
+            if counter > 0 or longform:
                 factorization.append((p, counter))
             if n == 1:
                 return factorization
 
     def __getPrimesList(self):
         return self.__primeList
+
+    def multiplyFactors(self, factorization):
+        total = 1.0
+        for p, e in factorization:
+            total *= p ** e
+        return total
